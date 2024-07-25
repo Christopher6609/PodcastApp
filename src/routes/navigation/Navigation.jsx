@@ -3,9 +3,9 @@ import Button from "../../components/atoms/Button/Button";
 const Navigation = () => {
     return (
         <Fragment >
-             <div className=" h-[6.25rem] justify-between items-center md:flex hidden relative">
+             <div className=" h-[6.25rem] justify-between items-center md:flex hidden  bg-[#d5c6f9] ">
                 <div className="w-[39rem] h-[32.375rem] absolute md:-top-[0.4rem] md:-left-[10rem] -z-10 md:block">
-                    {/* <img className="w-full h-full object-contain" src="../../assets/images/Group 2.png"  /> */}
+                    <img className="w-full h-full object-contain" src="/images/Group 2.png"  />
                 </div>
 
                 <div>
@@ -14,10 +14,10 @@ const Navigation = () => {
         <div>
           <ul className="list-none flex text-[1rem] font-[400] leading-[1.362rem] text-[#1E1E1E] gap-16">
             <li>
-              <a href="#">Home</a>
+              <a href="#home">Home</a>
             </li>
             <li>
-              <a href="#">Episodes</a>
+              <a href="#episodes">Episodes</a>
             </li>
             <li>
               <a href="#">Features</a>
