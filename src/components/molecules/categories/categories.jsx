@@ -1,11 +1,11 @@
-import Button from "../../components/atoms/Button/Button";
+import Button from "../../atoms/Button/Button";
 import PodCard from "./PodCard";
 import StepCard from "./StepCard";
 
 const Categories = () => {
     return(
         <>
-            <section className="bg-[#320E3B] bg-opacity-5 py-[5rem]" id="categories">
+            <section className="bg-[#320E3B] bg-opacity-5 py-[5rem] px-[1rem]" id="categories">
             <div className="px-2">
             <h1 className="font-[700] text-center md:leading-[3.064rem] text-[2.375rem] leading-[3.188rem] text-[#1E1E1E]">
                 Explore our podcast by{" "}
@@ -30,7 +30,7 @@ const Categories = () => {
           ))}
         </div>
       </section>
-      <section className="md:py-[7.813rem] py-[4.813rem]">
+      <section className="md:py-[7.813rem] px-[1rem] py-[4.813rem]">
         <div className="md:flex justify-between items-start">
           <div className=" p-4 md:p-0 text-center md:text-start  w-full md:w-[24.188rem]">
             <h2 className="text-[2.375rem] leading-[3.188rem] font-[500] text-[#1E1E1E]">

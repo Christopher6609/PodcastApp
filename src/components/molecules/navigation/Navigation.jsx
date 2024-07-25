@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import Button from "../../components/atoms/Button/Button";
+import Button from "../../atoms/Button/Button";
 const Navigation = () => {
     return (
         <Fragment >
-             <div className=" h-[6.25rem] justify-between items-center md:flex hidden  bg-[#d5c6f9] ">
+             <div className=" h-[6.25rem] justify-between items-center md:flex hidden px-[1rem] bg-[#d5c6f9] ">
                 <div className="w-[39rem] h-[32.375rem] absolute md:-top-[0.4rem] md:-left-[10rem] -z-10 md:block">
                     <img className="w-full h-full object-contain" src="/images/Group 2.png"  />
                 </div>

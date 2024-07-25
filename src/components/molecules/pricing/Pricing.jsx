@@ -4,7 +4,7 @@ import Plan from "./Plan";
 const Pricing = () => {
     return(
         <section id="pricing">
-            <h1 className=" md:text-[2.25rem] text-[1.25rem] font-[600] text-center md:leading-[3.064rem]">
+            <h1 className=" md:text-[2.25rem] text-[1.25rem] font-[600] text-center  md:leading-[3.064rem]">
             Our <span className="text-[#320E3B] font-[700]">pricing</span> is
             simple with no hidden charges
             </h1>
@@ -18,7 +18,7 @@ const Pricing = () => {
             </button>
           </div>
         </div>
-        <div className="py-[4.438rem] flex flex-col justify-center items-center gap-5  md:flex-row md:justify-between">
+        <div className="py-[4.438rem] flex flex-col justify-center items-center gap-5 px-[1rem] md:flex-row md:justify-between">
           {planlist.map((item) => (
             <Plan key={item.id} plans={item} />
           ))}
