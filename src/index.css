@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.liner{
+  border: 1px solid black;
+}
+.linerred{
+  border: 1px solid red;
+}

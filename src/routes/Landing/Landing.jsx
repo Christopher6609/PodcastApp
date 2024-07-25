@@ -1,8 +1,14 @@
+import Navigation from "../navigation/Navigation.jsx";
+import Home from "../home/Home.jsx";
+
 const Landing = () => {
 return(
-    <div>
-        <h1>Landing</h1>
-    </div>
+    <main className="px-[1rem] max-w-[1440px] mx-auto">
+       <Navigation />
+       <Home />
+
+      
+    </main>
 )
 }
 
