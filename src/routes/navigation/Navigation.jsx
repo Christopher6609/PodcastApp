@@ -20,13 +20,13 @@ const Navigation = () => {
               <a href="#episodes">Episodes</a>
             </li>
             <li>
-              <a href="#">Features</a>
+              <a href="#features">Features</a>
             </li>
             <li>
-              <a href="#">Pricing</a>
+              <a href="#pricing">Pricing</a>
             </li>
             <li>
-              <a href="#">Categories</a>
+              <a href="#categories">Categories</a>
             </li>
           </ul>
         </div>

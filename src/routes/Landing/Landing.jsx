@@ -3,6 +3,7 @@ import Home from "../home/Home.jsx";
 import Episodes from "../episodes/Episodes.jsx";
 import Features from "../features/Features.jsx";
 import Categories from "../categories/categories.jsx";
+import Pricing from "../pricing/Pricing.jsx";
 
 const Landing = () => {
 return(
@@ -12,6 +13,7 @@ return(
        <Episodes />
        <Features/>
         <Categories />
+        <Pricing />
       
     </main>
 )
