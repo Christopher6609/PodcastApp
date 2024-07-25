@@ -9,7 +9,7 @@ import {
 
 const Features = () => {
     return(
-        <div className="py-[2rem] px-[1rem]">
+        <div className="py-[2rem] px-[1rem]" id="features">
         <div className=" md:flex justify-between items-start ">
           <div className=" p-4 md:p-0 text-center md:text-start  w-full md:w-[23.813rem]">
             <h2 className="text-[2.375rem] leading-[3.188rem] font-[700] text-[#1E1E1E]">

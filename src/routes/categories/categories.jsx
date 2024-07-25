@@ -1,9 +1,11 @@
 import Button from "../../components/atoms/Button/Button";
 import PodCard from "./PodCard";
+import StepCard from "./StepCard";
 
 const Categories = () => {
     return(
-        <section className="bg-[#320E3B] bg-opacity-5 py-[5rem]">
+        <>
+            <section className="bg-[#320E3B] bg-opacity-5 py-[5rem]" id="categories">
             <div className="px-2">
             <h1 className="font-[700] text-center md:leading-[3.064rem] text-[2.375rem] leading-[3.188rem] text-[#1E1E1E]">
                 Explore our podcast by{" "}
@@ -28,6 +30,29 @@ const Categories = () => {
           ))}
         </div>
       </section>
+      <section className="md:py-[7.813rem] py-[4.813rem]">
+        <div className="md:flex justify-between items-start">
+          <div className=" p-4 md:p-0 text-center md:text-start  w-full md:w-[24.188rem]">
+            <h2 className="text-[2.375rem] leading-[3.188rem] font-[500] text-[#1E1E1E]">
+              Here is how we make{" "}
+              <span className="text-[#320E3B] font-[700]">podcasting</span>{" "}
+              easier{" "}
+            </h2>
+            <p className="text-[1rem] leading-[1.313rem] font-[400] opacity-50 py-5">
+              The following steps to be followed to record your podcast easily.
+              The following steps to be followed to record your podcast easily
+            </p>
+            <Button> Start Recording           </Button>
+          </div>
+          <div className="flex flex-wrap gap-4 justify-center items-center md:gap-[3.75rem] md:w-[59.5rem] py-[1.25rem]">
+            {steplist.map((item) => (
+                <StepCard key={item.id} item={item}   />
+            ))}
+          </div>
+        </div>
+      </section>      
+        </>
+        
     )
 }
 const podcastList = [
@@ -86,6 +111,33 @@ const podcastList = [
       headtext: "Ace that paper",
       episodes: "17 episodes",
       time: "120 mins",
+    },
+  ];
+
+  const steplist = [
+    {
+      id: "1",
+      img: "/images//bi_person.png",
+      text: "Create an account",
+      subtext: "Set up your account to start enjoying our seamless service",
+    },
+    {
+      id: "2",
+      img: "/images/bi_mic.png",
+      text: "Record your podcast",
+      subtext: "Record easily and everything is easy and simple to use",
+    },
+    {
+      id: "3",
+      img: "/images/Frame 6.png",
+      text: "Edit your podcast",
+      subtext: "Remove unwanted noise an just edit where its requried",
+    },
+    {
+      id: "4",
+      img: "/images/bi_cloud-upload.png",
+      text: "Upload your podcast",
+      subtext: "Remove unwanted noise an just edit where its requried",
     },
   ];
 
