@@ -9,7 +9,7 @@ import {
 
 const Episodes = () => {
     return (
-        <div className="py-9 relative" id="episodes">
+        <div className="py-9 px-[1rem] relative" id="episodes">
         <h1 className=" md:text-[2.25rem] text-[1.25rem] font-[600] text-center md:leading-[3.064rem]">
           We have listed the top podcast for this week
         </h1>
