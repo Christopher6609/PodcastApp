@@ -8,7 +8,7 @@ const Navigation = () => {
 
   const navigate = useNavigate();
   const logoNavigationHandler = () => navigate('/');
-  const loginNavigationHandler = () => navigate('/login');
+  const loginNavigationHandler = () => navigate('/auth/login');
   const signupNavigationHandler = () => navigate('/auth/signup');
 
     return (
@@ -42,7 +42,7 @@ const Navigation = () => {
           </ul>
         </div>
         <div className=" flex gap-5">
-          <Button>Login</Button>
+          <span onClick={loginNavigationHandler}><Button>Login</Button></span>
           <span onClick={signupNavigationHandler}><Button type="button">Sign Up</Button>
           </span>
         </div>
