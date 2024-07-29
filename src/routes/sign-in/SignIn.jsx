@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
+import { signInWithGooglePopup } from "../../utils/firebase/firebase";
 
 const SignIn = () => {
 
@@ -19,6 +20,11 @@ const SignIn = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+    }
+
+    const googleSignIn = async () => {
+        const response = await signInWithGooglePopup();
+        console.log(response);
     }
 
     return(
@@ -45,7 +51,9 @@ const SignIn = () => {
                         required
                     />
                     <Button>Submit</Button>
+                   
                 </form>
+                <span onClick={googleSignIn}><Button >Sign in with Google</Button></span>
 
             </div>
             </div>
