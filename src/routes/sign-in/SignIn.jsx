@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
-import { signInWithGooglePopup } from "../../utils/firebase/firebase";
+import { signInWithGooglePopup, signUserInWithEmailAndPassword } from "../../utils/firebase/firebase";
 
 const SignIn = () => {
 
@@ -17,15 +17,33 @@ const SignIn = () => {
         const {name, value } = event.target;
         setFormFields({...formFields, [name]:value})
     }
+    
+    const resetFormFields = () => setFormFields(DefaultFormFields);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+
+        try{
+            await signUserInWithEmailAndPassword(email,password);
+            resetFormFields();
+        }catch(error){
+            switch(error.code){
+                case 'auth/invalid-credential' :
+                    alert('Invalid Login Credentials');
+                    break;
+                case 'auth/user-not-found':
+                    alert('User not found');
+                    break;
+                default:
+                    console.log(error);
+            }
+            console.log(error);
+        }
     }
 
     const googleSignIn = async () => {
-        const response = await signInWithGooglePopup();
-        console.log(response);
-    }
+      await signInWithGooglePopup();
+    };
 
     return(
         <>
@@ -50,7 +68,7 @@ const SignIn = () => {
                         onChange={handleChange}
                         required
                     />
-                    <Button>Submit</Button>
+                    <span><Button>Submit</Button></span>
                    
                 </form>
                 <span onClick={googleSignIn}><Button >Sign in with Google</Button></span>

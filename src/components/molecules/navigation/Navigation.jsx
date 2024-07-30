@@ -2,6 +2,9 @@ import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import Button from "../../atoms/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react'
+import { UserContext } from "../../../context/userContext";
+import { signUserOut } from "../../../utils/firebase/firebase.js"
 
 
 const Navigation = () => {
@@ -10,7 +13,8 @@ const Navigation = () => {
   const logoNavigationHandler = () => navigate('/');
   const loginNavigationHandler = () => navigate('/auth/login');
   const signupNavigationHandler = () => navigate('/auth/signup');
-
+  const {currentUser} = useContext(UserContext)
+  console.log(currentUser);
     return (
       
         <Fragment >
@@ -41,11 +45,11 @@ const Navigation = () => {
             </li>
           </ul>
         </div>
-        <div className=" flex gap-5">
-          <span onClick={loginNavigationHandler}><Button>Login</Button></span>
-          <span onClick={signupNavigationHandler}><Button type="button">Sign Up</Button>
-          </span>
-        </div>
+      { currentUser ? <div><span onClick={signUserOut}><Button type="button">Sign Out</Button></span> </div> : <div className=" flex gap-5">
+            <span onClick={loginNavigationHandler}><Button>Login</Button></span>
+            <span onClick={signupNavigationHandler}><Button type="button">Sign Up</Button>
+            </span>
+          </div>}
         </div>
 
         <Outlet />
