@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth,GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getAuth,GoogleAuthProvider, signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword ,signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import { getFirestore, doc, getDoc, setDoc, collection, query, getDocs } from 'firebase/firestore';
 
 
 // connection to the firebase online environment
@@ -28,20 +28,17 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
 const db = getFirestore(); // creates the firestore database
 
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (userAuth, additionalInformation) => {
     const userDocRef = doc(db, 'users', userAuth.uid);
-    console.log(userDocRef);
 
-    const userSnapshot = await getDoc(userDocRef);
-    console.log(userSnapshot);
-    
+    const userSnapshot = await getDoc(userDocRef);    
 
     if(!userSnapshot.exists()){
         const {displayName, email } = userAuth;
         const createdAt = new Date();
         
         try{
-            await setDoc(userDocRef, {displayName, email, createdAt})
+            await setDoc(userDocRef, {displayName, email, createdAt, ...additionalInformation})
         }catch(error){
             console.log('error creating user', error.message)
         }
@@ -64,3 +61,26 @@ export const signUserInWithEmailAndPassword = async (email, password) => {
 
     return await signInWithEmailAndPassword(auth, email, password);
 }
+
+export const createUserDocumentWithEmailAndPassword = async (email, password) => {
+    if(!email || !password ) return ;
+
+    return createUserWithEmailAndPassword(auth, email, password);
+}
+
+// export const getUserDocument = async () => {
+//     const collectionRef = collection(db, 'users');
+//     const q = query(collectionRef);
+
+//     const querySnapshot = await getDocs(q);
+
+//     const userMap = querySnapshot.docs.reduce((acc, docSnapshot)=>{
+//         const {displayName} = docSnapshot.data();
+//         acc[ displayName ] = displayName;
+//         console.log(acc);
+//         return acc;
+        
+//     }, {})
+//     return userMap;
+    
+// }

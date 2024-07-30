@@ -4,12 +4,12 @@ import { UserContext } from "../../../context/userContext";
 
 const Home = () => {
     const {currentUser} = useContext(UserContext);
-
+    
     return(
         <div className="flex justify-between md:min-h-[40rem] md:w-full py-[1.5rem] px-[1rem]" id="home">
             <div className="md:w-[40.125rem]">
           <div className="w-full text-center md:text-left md:w-full py-[3rem] md:py-[5.438rem] ">
-          {currentUser ? <h1 className="text-[0.875rem]">Welcome <span className="text-[1rem] font-bold">{currentUser.displayName}!</span></h1>:null}
+          {currentUser ? <h1 className="text-[0.875rem]">Welcome <span className="text-[1rem] font-bold">{currentUser.email}!</span></h1>:null}
             <h1 className="text-[#1E1E1E] text-[2rem] md:text-[3rem] leading-normal md:leading-[4.375rem] font-[700]">
               Talk,Listen,Get Inspired On Our{" "}
               <span className="text-[#320E3B]">Platform</span>

@@ -13,8 +13,7 @@ const Navigation = () => {
   const logoNavigationHandler = () => navigate('/');
   const loginNavigationHandler = () => navigate('/auth/login');
   const signupNavigationHandler = () => navigate('/auth/signup');
-  const {currentUser} = useContext(UserContext)
-  console.log(currentUser);
+  const {currentUser} = useContext(UserContext);
     return (
       
         <Fragment >
