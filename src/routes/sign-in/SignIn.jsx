@@ -50,8 +50,8 @@ const SignIn = () => {
              <div className="flex flex-col justify-center items-center">
                     <h2>I have an account</h2>
                     <h1 className='text-[2rem]'>Login with your Email and Password</h1>
-            <div className="w-[50rem]">
-                <form onSubmit={handleSubmit}>
+            <div className="w-[50rem] flex flex-col gap-[2rem]">
+                <form onSubmit={handleSubmit} className="">
                     <FormInput 
                         type="email"
                         placeholder="Enter your email"
@@ -68,11 +68,13 @@ const SignIn = () => {
                         onChange={handleChange}
                         required
                     />
-                    <span><Button>Submit</Button></span>
-                   
+                    <div className="mt-[2rem]">
+                        <span><Button>Submit</Button></span>
+                        <span onClick={googleSignIn}><Button >Sign in with Google</Button></span>
+                    </div>
+                    
                 </form>
-                <span onClick={googleSignIn}><Button >Sign in with Google</Button></span>
-
+               
             </div>
             </div>
         </>

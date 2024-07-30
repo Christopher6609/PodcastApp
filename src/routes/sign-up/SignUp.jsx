@@ -1,20 +1,21 @@
 import { useState } from "react";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
+import { createUserDocumentWithEmailAndPassword, createUserDocumentFromAuth  } from '../../utils/firebase/firebase'
 
 
 
 const SignUp = () => {
 
     const DefaultFormFields = {
-        name:'',
+        displayName:'',
         email:'',
         password:'',
         confirmpassword:''
     }
 
 const [formFields, setFormFields] = useState(DefaultFormFields);
-const {name, email, password, confirmpassword} = formFields;
+const {displayName, email, password, confirmpassword} = formFields;
 
 const handleChange = (event) => {
     const {name, value} = event.target;
@@ -22,8 +23,28 @@ const handleChange = (event) => {
       setFormFields({...formFields, [name]:value})
 }
 
-const handleSubmit = (event) => {
+const resetFormFields = () => setFormFields(DefaultFormFields);
+
+const handleSubmit = async (event) => {
     event.preventDefault()
+    if(password != confirmpassword){
+    alert("Password do not match");
+    }
+
+    try{
+        const {user} = await createUserDocumentWithEmailAndPassword(email, password);
+        await createUserDocumentFromAuth(user, {displayName});
+        resetFormFields();
+    }catch(error){
+        switch(error.code){
+            case 'auth/email-already-in-use':
+                alert('Email address already in use');
+                break;
+                default:
+                    return console.log(error);
+        }
+   
+    }
 }
     return(
         <>
@@ -36,8 +57,8 @@ const handleSubmit = (event) => {
                         label="Display Nane:"
                         type='text'
                         placeholder="Enter your username"
-                        name="name"
-                        value={name}
+                        name="displayName"
+                        value={displayName}
                         onChange={handleChange}
                         required
                         
