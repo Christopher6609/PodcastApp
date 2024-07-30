@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth,GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import { getAuth,GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 
@@ -25,3 +25,42 @@ export const auth = getAuth();
 
 // function to sign in with google popup
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+const db = getFirestore(); // creates the firestore database
+
+export const createUserDocumentFromAuth = async (userAuth) => {
+    const userDocRef = doc(db, 'users', userAuth.uid);
+    console.log(userDocRef);
+
+    const userSnapshot = await getDoc(userDocRef);
+    console.log(userSnapshot);
+    
+
+    if(!userSnapshot.exists()){
+        const {displayName, email } = userAuth;
+        const createdAt = new Date();
+        
+        try{
+            await setDoc(userDocRef, {displayName, email, createdAt})
+        }catch(error){
+            console.log('error creating user', error.message)
+        }
+        
+    }
+    return userDocRef;
+}
+
+export const onAuthStateChangedListener = (callback) => {
+    onAuthStateChanged(auth, callback);
+}
+
+export const signUserOut = async () => {
+    signOut(auth);
+};
+
+
+export const signUserInWithEmailAndPassword = async (email, password) => {
+    if(!email || !password ) return ;
+
+    return await signInWithEmailAndPassword(auth, email, password);
+}
