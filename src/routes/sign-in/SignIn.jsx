@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
+import Footer from '../../components/molecules/footer/Footer';
 import { signInWithGooglePopup, signUserInWithEmailAndPassword } from "../../utils/firebase/firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -55,7 +56,7 @@ const SignIn = () => {
 
     return(
         <>
-             <div className="flex flex-col justify-center items-center mt-[3rem]">
+             <div className="flex flex-col justify-center items-center my-[5rem]">
                     <h2>I have an account</h2>
                     <h1 className='text-[2rem]'>Login with your Email and Password</h1>
             <div className="w-[50rem] flex flex-col gap-[2rem]">
@@ -85,6 +86,7 @@ const SignIn = () => {
                
             </div>
             </div>
+            <Footer />
         </>
     )
 }
