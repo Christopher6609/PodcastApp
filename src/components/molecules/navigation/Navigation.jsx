@@ -32,10 +32,11 @@ const Navigation = () => {
             src="/images/Group 2.png"
           />
         </div>
+       
+        <div className="md:w-[10rem] flex gap-[1vw]">
         <div className="text-[1.5rem] flex items-center justify-center hover:cursor-pointer md:hidden">
           <FontAwesomeIcon onClick={navIconToggle} icon={navIcon} />
         </div>
-        <div className="md:w-[10rem]">
           <span
             onClick={logoNavigationHandler}
             className="hover:cursor-pointer"
