@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
-import { createUserDocumentWithEmailAndPassword, createUserDocumentFromAuth  } from '../../utils/firebase/firebase'
+import { createUserDocumentWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup  } from '../../utils/firebase/firebase';
+
 
 
 
@@ -46,9 +49,14 @@ const handleSubmit = async (event) => {
    
     }
 }
+
+const googleSignIn = async () => {
+    await signInWithGooglePopup();
+   
+  };
     return(
         <>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center py-[3rem]">
             <h2>I do not have an account</h2>
             <h1 className='text-[2rem]'>Sign Up with your Email and Password</h1>
             <div className="w-[50rem]">
@@ -92,7 +100,10 @@ const handleSubmit = async (event) => {
                         required
                         
                     />
-                    <Button>Sign Up</Button>
+                    <div className="mt-[2rem] flex gap-[2rem]">
+                        <span><Button>Sign up</Button></span>
+                        <span onClick={googleSignIn}><Button><FontAwesomeIcon icon={faGoogle} className="pr-[0.875rem]"/>Sign up with Google</Button></span>
+                    </div>
                 
                 </form>
             </div>
