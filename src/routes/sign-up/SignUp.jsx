@@ -57,13 +57,13 @@ const googleSignIn = async () => {
   };
     return(
         <>
-            <div className="flex flex-col justify-center items-center my-[5rem]">
+            <div className="flex flex-col justify-center items-center md:my-[5rem] my-[3.5rem]">
             <h2>I do not have an account</h2>
-            <h1 className='text-[2rem]'>Sign Up with your Email and Password</h1>
-            <div className="w-[50rem]">
+            <h1 className='md:text-[2rem] text-[1rem]'>Sign Up with your Email and Password</h1>
+            <div className="md:w-[50rem] w-full px-[1rem]">
                 <form onSubmit={handleSubmit}>
                     <FormInput 
-                        label="Display Nane:"
+                        label="Display Name:"
                         type='text'
                         placeholder="Enter your username"
                         name="displayName"
