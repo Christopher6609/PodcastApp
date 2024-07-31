@@ -2,6 +2,9 @@ import { useState } from "react";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
 import { signInWithGooglePopup, signUserInWithEmailAndPassword } from "../../utils/firebase/firebase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+
 
 const SignIn = () => {
 
@@ -41,13 +44,18 @@ const SignIn = () => {
         }
     }
 
+    
+
+    
+
     const googleSignIn = async () => {
       await signInWithGooglePopup();
+     
     };
 
     return(
         <>
-             <div className="flex flex-col justify-center items-center">
+             <div className="flex flex-col justify-center items-center mt-[3rem]">
                     <h2>I have an account</h2>
                     <h1 className='text-[2rem]'>Login with your Email and Password</h1>
             <div className="w-[50rem] flex flex-col gap-[2rem]">
@@ -68,9 +76,9 @@ const SignIn = () => {
                         onChange={handleChange}
                         required
                     />
-                    <div className="mt-[2rem]">
-                        <span><Button>Submit</Button></span>
-                        <span onClick={googleSignIn}><Button >Sign in with Google</Button></span>
+                    <div className="mt-[2rem] flex gap-[2rem]">
+                        <span><Button>Log in</Button></span>
+                        <span onClick={googleSignIn}><Button ><FontAwesomeIcon icon={faGoogle} className="pr-[0.875rem]"/>Log in with Google</Button></span>
                     </div>
                     
                 </form>
