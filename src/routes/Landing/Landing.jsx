@@ -7,18 +7,17 @@ import Pricing from "../../components/molecules/pricing/Pricing.jsx";
 import Footer from "../../components/molecules/footer/Footer.jsx";
 
 const Landing = () => {
-return(
-    <main className=" max-w-[1440px] mx-auto">
-       <Navigation />
-       <Home />
-       <Episodes />
-       <Features/>
-        <Categories />
-        <Pricing />
-        <Footer/>
-      
+  return (
+    <main className=" max-w-[1440px] mx-auto rounded-bl-[6rem]">
+      <Navigation />
+      <Home />
+      <Episodes />
+      <Features />
+      <Categories />
+      <Pricing />
+      <Footer />
     </main>
-)
-}
+  );
+};
 
 export default Landing;
