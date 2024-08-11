@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
+
+import Footer from "../../components/molecules/footer/Footer";
+
 import {
   signInWithGooglePopup,
   signUserInWithEmailAndPassword,
@@ -45,7 +48,6 @@ const SignIn = () => {
     }
   };
 
-  
 
   const googleSignIn = async () => {
     await signInWithGooglePopup();
@@ -53,10 +55,13 @@ const SignIn = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center mt-[3rem]">
+      <div className="flex flex-col justify-center items-center md:my-[5rem] my-[8rem]">
         <h2>I have an account</h2>
-        <h1 className="text-[2rem]">Login with your Email and Password</h1>
-        <div className="w-[50rem] flex flex-col gap-[2rem]">
+        <h1 className="md:text-[2rem] text-[1rem]">
+          Login with your Email and Password
+        </h1>
+        <div className="md:w-[50rem] w-full px-[1rem] flex flex-col gap-[2rem]">
+
           <form onSubmit={handleSubmit} className="">
             <FormInput
               type="email"
@@ -88,6 +93,9 @@ const SignIn = () => {
           </form>
         </div>
       </div>
+
+      <Footer />
+
     </>
   );
 };

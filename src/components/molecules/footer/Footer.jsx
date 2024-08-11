@@ -1,15 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faFacebook,
-    faInstagram,
-    faLinkedin,
-    faTwitter,
-  } from "@fortawesome/free-brands-svg-icons";
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
-    return (
-        <div>
-         <section>
+  return (
+    <div>
+      <section>
         <div className="bg-[#320E3B] h-[20.75rem] w-full flex justify-center items-center flex-col md:rounded-[0.625rem] relative ">
           <div className="absolute right-0 top-0 hidden md:block">
             <img src="/images/Ellipse 12.png" />
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
-            <section className="pt-[6.375rem]">
+      <section className="pt-[6.375rem]">
         <div className="flex justify-between w-full px-4 ">
           <div className=" flex md:w-[11.25rem] flex-col gap-[1.563rem]">
             <h1 className="md:text-[2rem] text-[1.5rem] text-[Mono]">
@@ -110,8 +110,8 @@ const Footer = () => {
           <p className="text-xs">&copy; Christopher 2024</p>
         </div>
       </footer>
-        </div>
-    )
-}
+    </div>
+  );
+};
 
 export default Footer;
