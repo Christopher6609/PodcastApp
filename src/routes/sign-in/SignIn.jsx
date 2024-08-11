@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Button from "../../components/atoms/Button/Button";
 import FormInput from "../../components/atoms/FormInput/FormInput";
+
 import Footer from "../../components/molecules/footer/Footer";
+
 import {
   signInWithGooglePopup,
   signUserInWithEmailAndPassword,
@@ -46,6 +48,7 @@ const SignIn = () => {
     }
   };
 
+
   const googleSignIn = async () => {
     await signInWithGooglePopup();
   };
@@ -58,6 +61,7 @@ const SignIn = () => {
           Login with your Email and Password
         </h1>
         <div className="md:w-[50rem] w-full px-[1rem] flex flex-col gap-[2rem]">
+
           <form onSubmit={handleSubmit} className="">
             <FormInput
               type="email"
@@ -89,7 +93,9 @@ const SignIn = () => {
           </form>
         </div>
       </div>
+
       <Footer />
+
     </>
   );
 };

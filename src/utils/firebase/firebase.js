@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth,GoogleAuthProvider, signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword ,signInWithEmailAndPassword, signOut} from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc, collection, query, getDocs } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc, } from 'firebase/firestore';
 
 
 // connection to the firebase online environment
