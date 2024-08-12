@@ -1,9 +1,11 @@
 import Button from "../../atoms/Button/Button";
-import {useContext} from 'react';
-import { UserContext } from "../../../context/userContext";
+import { selectCurrentUser } from "../../../store/user/user.selector";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-    const {currentUser} = useContext(UserContext);
+    //const {currentUser} = useContext(UserContext);
+
+    const currentUser = useSelector(selectCurrentUser);
     
     return(
         <div className="flex justify-between md:min-h-[40rem] md:w-full py-[1.5rem] px-[1rem]" id="home">

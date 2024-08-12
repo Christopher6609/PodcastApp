@@ -2,18 +2,21 @@ import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import Button from "../../atoms/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
-import { UserContext } from "../../../context/userContext";
+import {  useState } from "react";
+//import { UserContext } from "../../../context/userContext";
 import { signUserOut } from "../../../utils/firebase/firebase.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../store/user/user.selector.js";
 
 const Navigation = () => {
   const navigate = useNavigate();
   const logoNavigationHandler = () => navigate("/");
   const loginNavigationHandler = () => navigate("/auth/login");
   const signupNavigationHandler = () => navigate("/auth/signup");
-  const { currentUser } = useContext(UserContext);
+  //const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const [navIcon, setNavIcon] = useState(faBars);
   const [navView, setNavView] = useState("top-[-100%]");
 
